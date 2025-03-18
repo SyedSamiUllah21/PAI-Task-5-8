@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke App</title>
+</head>
+<body>
+    <h1>Random Joke App</h1>
+    <button onclick="getJoke()">Get a Joke</button>
+    <p id="joke"></p>
+
+    <script>
+        function getJoke() {
+            fetch('/get_joke')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('joke').innerText = data.joke;
+            });
+        }
+    </script>
+</body>
+</html>
